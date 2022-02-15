@@ -13,7 +13,7 @@ function LoginChecker({ component: Component, ...rest }) {
             return (
               <Redirect
                 to={{
-                  pathname: "/Dashboard",
+                  pathname: "/dashboard",
                   state: { from: props.location },
                 }}
               />
