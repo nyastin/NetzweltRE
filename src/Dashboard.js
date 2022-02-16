@@ -1,5 +1,5 @@
 import { StartTwoTone } from "@mui/icons-material";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { data } from "./Territories";
 import { useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -13,12 +13,16 @@ function Dashboard() {
     history.push("/login");
   };
 
-  const recur = (items, id = null, link = "parent") =>
+  const recur = (
+    items,
+    id = null,
+    link = "parent" //sets parameter on recur
+  ) =>
     items
-      .filter((item) => item[link] === id)
-      .map((item) => ({ ...item, children: recur(items, item.id) }));
+      .filter((item) => item[link] === id) //checks if ID and parent have similarity.
+      .map((item) => ({ ...item, children: recur(items, item.id) })); //returns all properties of item and children alike.
 
-  const check = recur(data);
+  const check = recur(data); //passes the components of the data onto recur
 
   return (
     <div>

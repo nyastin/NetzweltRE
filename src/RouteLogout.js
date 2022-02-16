@@ -10,8 +10,9 @@ function LoginChecker({ component: Component, ...rest }) {
         {...rest}
         render={(props) => {
           if (user) {
+            //checks if there's an existing user
             return (
-              <Redirect
+              <Redirect //handles the session if there's a user
                 to={{
                   pathname: "/dashboard",
                   state: { from: props.location },
